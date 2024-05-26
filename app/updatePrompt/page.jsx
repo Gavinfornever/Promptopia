@@ -4,6 +4,7 @@ import {useState} from 'react'
 import {useSession} from 'next-auth/react'
 import {useRouter, useSearchParams} from 'next/navigation'
 import Form from '@/components/Form'
+import { Suspense } from 'react'
 
 const UpdatePrompt = () => {
     const router = useRouter()
@@ -63,4 +64,12 @@ const UpdatePrompt = () => {
     )
 }
 
-export default UpdatePrompt
+export function Intermediate(){
+    return(
+        <Suspense>
+            <UpdatePrompt />
+        </Suspense> 
+    )
+}
+
+export default Intermediate
